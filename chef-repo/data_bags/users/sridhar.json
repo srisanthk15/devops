@@ -1,0 +1,12 @@
+{
+  "id": "sridhar",
+  "password": "...",
+  "groups": [
+    "sysadmin"
+  ],
+  "shell": "/bin/bash",
+  "htpasswd": "...",
+  "nagios": {
+    "email": "srisanthk15@gmail.com"
+  }
+}

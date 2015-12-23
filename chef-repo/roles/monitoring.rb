@@ -1,6 +1,13 @@
-name "starter"
-description "An example Chef role"
-run_list "recipe[starter]"
-override_attributes({
-  "starter_name" => "Srisanth srisanth",
-})
+name 'monitoring'
+description 'Monitoring server'
+
+run_list(
+  'recipe[nagios::server]'
+)
+
+default_attributes(
+  :nagios => {
+    :server_auth_method => 'htauth',
+    :url => 'nagiosnode.myatmecs.com'
+  }
+)
