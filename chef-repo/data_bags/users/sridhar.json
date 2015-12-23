@@ -5,7 +5,7 @@
     "sysadmin"
   ],
   "shell": "/bin/bash",
-  "htpasswd": "...",
+  "htpasswd": "{SHA}PySVmrswQfhg/uonzBj9MfC/nLY=",
   "nagios": {
     "email": "srisanthk15@gmail.com"
   }
