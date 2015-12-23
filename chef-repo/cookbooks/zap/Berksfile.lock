@@ -1,0 +1,11 @@
+DEPENDENCIES
+  test
+    path: spec/cookbooks/test
+  zap
+    path: .
+    metadata: true
+
+GRAPH
+  test (0.0.1)
+    zap (>= 0.7.0)
+  zap (0.8.2)

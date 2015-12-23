@@ -1,0 +1,23 @@
+DEPENDENCIES
+  apt
+  chef-solo-search
+  chef_nrpe_test
+    path: test/fixtures/cookbooks/chef_nrpe_test
+  freebsd
+  nrpe
+    path: .
+    metadata: true
+
+GRAPH
+  apt (2.6.0)
+  build-essential (2.1.0)
+  chef-solo-search (0.5.1)
+  chef_nrpe_test (0.0.1)
+    nrpe (>= 0.0.0)
+  freebsd (0.1.10)
+  nrpe (1.5.1)
+    build-essential (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  yum (3.4.0)
+  yum-epel (0.5.1)
+    yum (~> 3.0)
