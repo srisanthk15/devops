@@ -5,7 +5,6 @@ run_list(
   # this adds NRPE support
   'recipe[nagios::client]',
   # this installs base NRPE checks (see below)
-  'recipe[example::base_monitoring]'
 )
 
 default_attributes(
