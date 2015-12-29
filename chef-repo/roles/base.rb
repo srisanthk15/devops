@@ -4,6 +4,7 @@ description 'base role for servers'
 run_list(
   # this adds NRPE support
   'recipe[nagios::client]',
+  'recipe[java]',
   # this installs base NRPE checks (see below)
 )
 
