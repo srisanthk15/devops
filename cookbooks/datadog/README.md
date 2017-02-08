@@ -9,11 +9,15 @@ The code is licensed under the Apache License 2.0 (see  LICENSE for details).
 [![Coverage Status](https://coveralls.io/repos/DataDog/chef-datadog/badge.svg?branch=master)](https://coveralls.io/r/DataDog/chef-datadog?branch=master)
 [![GitHub forks](https://img.shields.io/github/forks/DataDog/chef-datadog.svg)](https://github.com/DataDog/chef-datadog/network)
 [![GitHub stars](https://img.shields.io/github/stars/DataDog/chef-datadog.svg)](https://github.com/DataDog/chef-datadog/stargazers)
+[![Build Status](https://jenkins-01.eastus.cloudapp.azure.com/job/datadog-cookbook/badge/icon)](https://jenkins-01.eastus.cloudapp.azure.com/job/datadog-cookbook/)
 
 Datadog Cookbook
 ================
 
 Chef recipes to deploy Datadog's components and configuration automatically.
+
+**NB: This README may refer to features that are not released yet. Please check the README of the
+git tag/the gem version you're using for your version's documentation**
 
 Requirements
 ============
@@ -40,6 +44,16 @@ The following Opscode cookbooks are dependencies:
 * `windows`
 * `yum`
 
+**Note for Chef 11 users**: please use these additional dependency version contraints for compatibility with Chef 11:
+
+```
+cookbook 'apt', '< 4.0'
+cookbook 'chef_handler', '< 2.0'
+cookbook 'windows', '< 2.0'
+cookbook 'yum', '~> 3.0'
+```
+
+(in Berkshelf/Librarian format)
 
 Recipes
 =======
@@ -75,10 +89,16 @@ Usage
 
 1. Add this cookbook to your Chef Server, either by installing with knife or by adding it to your Berksfile:
   ```
-  cookbook 'datadog', '~> 2.1.0'
+  cookbook 'datadog', '~> 2.7.0'
   ```
-2. Add your API Key as a node attribute via an `environment` or `role` or by declaring it in another cookbook at a higher precedence level.
-3. Create an 'application key' for `chef_handler` [here](https://app.datadoghq.com/account/settings#api), and add it as a node attribute, as in Step #2.
+2. Add your API Key either:
+  * as a node attribute via an `environment` or `role`, or
+  * as a node attribute by declaring it in another cookbook at a higher precedence level, or
+  * in the node `run_state` by setting `node.run_state['datadog']['api_key']` in another cookbook preceding `datadog`'s recipes in the run_list. This approach has the benefit of not storing the credential in clear text on the Chef Server.
+3. Create an 'application key' for `chef_handler` [here](https://app.datadoghq.com/account/settings#api), and add it as a node attribute or in the run state, as in Step #2.
+
+   NB: if you're using the run state to store the api and app keys you need to set them at compile time before `datadog::dd-handler` in the run list.
+
 4. Associate the recipes with the desired `roles`, i.e. "role:chef-client" should contain "datadog::dd-handler" and a "role:base" should start the agent with "datadog::dd-agent".  Here's an example role with both recipes:
   ```
   name 'example'
