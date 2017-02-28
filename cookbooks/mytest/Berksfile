@@ -1,6 +1,4 @@
 source 'https://supermarket.chef.io'
 
 metadata
-cookbook "runit"
-cookbook "packagecloud"
-cookbook "yum-epel"
+cookbook "apt", "~> 2.2.0"
