@@ -1,0 +1,8 @@
+{
+  "groups": "sysadmin",
+  "htpasswd": "{SHA}0Ju01eqK6fZCgXKCd4cSM/A8FM0=",
+  "id": "sridhar_kondaboina",
+  "nagios": {
+    "email": "sridhar.kondaboina@kony.com"
+  }
+}
