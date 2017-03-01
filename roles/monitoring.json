@@ -1,0 +1,22 @@
+{
+  "name": "monitoring",
+  "description": "Monitoring server",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "nagios": {
+      "server_auth_method": "htauth",
+      "url": "nagios.tools.example.com"
+    }
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[nagios::default]",
+    "recipe[postfix]"
+  ],
+  "env_run_lists": {
+
+  }
+}

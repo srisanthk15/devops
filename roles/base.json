@@ -1,0 +1,20 @@
+{
+  "name": "base",
+  "description": "base role for servers",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "nagios": {
+      "server_role": "monitoring"
+    }
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[datadog]"
+  ],
+  "env_run_lists": {
+
+  }
+}
