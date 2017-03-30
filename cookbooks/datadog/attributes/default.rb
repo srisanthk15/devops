@@ -22,11 +22,13 @@
 # The Datadog api key to associate your agent's data with your organization.
 # Can be found here:
 # https://app.datadoghq.com/account/settings
-default['datadog']['api_key'] = "9117f9cb3b14b0d9378552e496317a05"
+default['datadog']['api_key'] = nil
+#default['datadog']['api_key'] = "9117f9cb3b14b0d9378552e496317a05"
 
 # Create an application key on the Account Settings page.
 # Set it as an attribute, or on your node `run_state` under the key `['datadog']['application_key']`
-default['datadog']['application_key'] = "e3d9f2fb3ec19be7fd7513ce71a76a2d1f7ca2d6"
+default['datadog']['application_key'] = nil
+#default['datadog']['application_key'] = "e3d9f2fb3ec19be7fd7513ce71a76a2d1f7ca2d6"
 
 # Use this attribute to send data to additional accounts
 # (agent and handler if enabled)
